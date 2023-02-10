@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-3
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  project: default
+  source:
+    chart: home-assistant
+    repoURL: https://charts.helm.sh/stable
+    targetRevision: 0.13.4
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
