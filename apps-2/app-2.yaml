@@ -3,8 +3,6 @@ kind: Application
 metadata:
   name: app-2
   namespace: default
-  finalizers:
-  - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
     server: https://kubernetes.default.svc
