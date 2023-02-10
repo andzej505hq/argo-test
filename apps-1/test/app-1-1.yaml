@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps-1
+  name: app-1-1
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
@@ -11,12 +11,9 @@ spec:
     namespace: default
   project: default
   source:
-    path: apps-1/
-    repoURL: https://github.com/andzej505hq/argo-test.git
-    targetRevision: HEAD
-    directory:
-      recurse: true
-      include: '*.yaml'
+    chart: home-assistant
+    repoURL: https://charts.helm.sh/stable
+    targetRevision: 0.13.4
   syncPolicy:
     automated:
       prune: true
